@@ -1,9 +1,9 @@
 <template>
   <nav>
     <ul>
-      <li>
+      <!-- <li>
         <NuxtLink to="/" :prefetch="true">Home</NuxtLink>
-      </li>
+      </li> -->
       <li>
         <NuxtLink to="/page1" :prefetch="true">Pagina 1</NuxtLink>
       </li>
