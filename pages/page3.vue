@@ -3,7 +3,10 @@
     <label>Welke parameter wil jij doorgeven aan de param pagina?</label>
 
     <form id="paramform"><input type="number" v-model="param" /></form>
-    <button class="e-primary" @click="this.$router.push('/' + param)"></button>
+    <button
+      class="e-primary"
+      @click="this.$router.push('/' + param + '/test' + '/test')"
+    ></button>
   </div>
 </template>
 <script setup>
