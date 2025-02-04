@@ -1,14 +1,28 @@
 <template>
   <nav>
     <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/page1">Pagina 1</a></li>
-      <li><a href="/page2">Pagina 2</a></li>
-      <li><a href="/page3">Pagina 3</a></li>
+      <li>
+        <NuxtLink to="/" :prefetch="true">Home</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="/page1" :prefetch="true">Pagina 1</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="/page2" :prefetch="true">Pagina 2</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="/page3" :prefetch="true">Pagina 3</NuxtLink>
+      </li>
+      <li>
+        <NuxtLink to="/nestedpage1" :prefetch="true">Nested pagina 1</NuxtLink>
+      </li>
     </ul>
   </nav>
 </template>
 <style scoped>
+.router-link-active {
+  color: rgb(240, 127, 255);
+}
 ul {
   list-style: none;
   margin: 0;
@@ -30,7 +44,7 @@ nav {
 }
 
 /* Style links */
-a {
+NuxtLink {
   color: aliceblue;
   text-decoration: none;
   font-size: 1rem;
