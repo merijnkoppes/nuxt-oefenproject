@@ -12,7 +12,7 @@
 <script setup>
 import { ref } from "vue";
 
-const param = ref(0); // Make param reactive
+const param = ref(0);
 </script>
 <style scoped>
 input {
