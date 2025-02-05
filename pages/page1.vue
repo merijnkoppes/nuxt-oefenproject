@@ -1,7 +1,7 @@
 <script setup>
-definePageMeta({
-  middleware: ["middleware-example"],
-});
+// definePageMeta({
+//   middleware: ["middleware-example"],
+// });
 </script>
 <template>
   <div>
