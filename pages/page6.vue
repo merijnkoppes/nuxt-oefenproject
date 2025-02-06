@@ -1,19 +1,19 @@
 <script setup>
-const id = ref(1);
-const { data: product, refresh } = await useFetch(() => {
-  return `https://fakestoreapi.com/products/${id.value}`;
+const { data: posts } = await useFetch("posts", {
+  baseURL: "https://jsonplaceholder.typicode.com",
+  method: "post",
+  body: {
+    title: "titel",
+    name: "geentitel",
+  },
 });
-const fetchproduct = async () => {
-  ++id.value;
-  await refresh();
-};
-console.log(product.value);
+// console.log(product.value);
 </script>
 <template>
   <div>
-    <button @click="fetchproduct"><h1>Display new prroductt</h1></button>
+    <!-- <button @click="fetchproduct"><h1>Display new prroductt</h1></button> -->
     <div>
-      {{ product }}
+      {{ posts }}
     </div>
   </div>
 </template>
