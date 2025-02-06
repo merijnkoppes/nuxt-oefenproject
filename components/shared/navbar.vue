@@ -14,6 +14,9 @@
         <NuxtLink to="/page3" :prefetch="true">Pagina 3</NuxtLink>
       </li>
       <li>
+        <NuxtLink to="/page4" :prefetch="true">Pagina 4</NuxtLink>
+      </li>
+      <li>
         <NuxtLink to="/nestedpage1" :prefetch="true">Nested pagina 1</NuxtLink>
       </li>
     </ul>
