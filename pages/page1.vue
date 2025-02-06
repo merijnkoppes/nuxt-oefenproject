@@ -1,5 +1,7 @@
 <script setup>
-import Bluelayout from "~/layouts/bluelayout.vue";
+useHead({
+  title: "pagina1",
+});
 
 definePageMeta({
   //   middleware: ["middleware-example"],

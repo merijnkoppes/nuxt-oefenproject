@@ -1,6 +1,8 @@
 <script setup>
 import Bluelayout from "~/layouts/bluelayout.vue";
-
+useHead({
+  title: "pagina4",
+});
 definePageMeta({
   middleware: [
     function (to, from) {
@@ -29,13 +31,13 @@ definePageMeta({
       Vestibulum vestibulum, augue sit amet ullamcorper consectetur, nunc lorem
       tempus nisl, quis tincidunt nibh neque in nulla. Phasellus sit amet tortor
       vitae ex malesuada convallis eu eu leo. Vestibulum tempor cursus laoreet.
-      Phasellus ex ante, convallis at consequat ut, sodales et nulla. Nullam
-      vulputate eu dui at congue. Vivamus accumsan massa vitae ex ullamcorper, a
-      rhoncus est dictum. Etiam faucibus magna a feugiat lacinia. Phasellus eget
-      nisl malesuada, iaculis metus vitae, elementum enim. Sed at est non velit
-      fermentum fermentum. Aliquam eget bibendum risus. Etiam metus eros,
-      commodo quis finibus quis, ullamcorper in felis. Orci varius natoque
-      penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      Nein Phasellus ex ante, convallis at consequat ut, sodales et nulla.
+      Nullam vulputate eu dui at congue. Vivamus accumsan massa vitae ex
+      ullamcorper, a rhoncus est dictum. Etiam faucibus magna a feugiat lacinia.
+      Phasellus eget nisl malesuada, iaculis metus vitae, elementum enim. Sed at
+      est non velit fermentum fermentum. Aliquam eget bibendum risus. Etiam
+      metus eros, commodo quis finibus quis, ullamcorper in felis. Orci varius
+      natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
       Maecenas auctor, erat at faucibus accumsan, mi ex aliquam augue, nec
     </p>
   </div>

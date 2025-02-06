@@ -1,8 +1,7 @@
 <script setup>
-definePageMeta({
-  middleware: ["denyhacker"],
-});
+const route = useRoute();
 </script>
+
 <template>
-  <h1>{{ $route.params.name }}</h1>
+  <h1>{{ route.params.name }}</h1>
 </template>

@@ -10,6 +10,9 @@
   </div>
 </template>
 <script setup>
+useHead({
+  title: "pagina3",
+});
 import { ref } from "vue";
 
 const param = ref(0);
