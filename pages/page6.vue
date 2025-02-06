@@ -1,4 +1,4 @@
-<script cript setup>
+<script setup>
 const id = ref(1);
 const { data: product, refresh } = await useFetch(() => {
   return `https://fakestoreapi.com/products/${id.value}`;
