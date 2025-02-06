@@ -1,7 +1,10 @@
 <script setup>
-// definePageMeta({
-//   middleware: ["middleware-example"],
-// });
+import Bluelayout from "~/layouts/bluelayout.vue";
+
+definePageMeta({
+  //   middleware: ["middleware-example"],
+  layout: "bluelayout",
+});
 </script>
 <template>
   <div>

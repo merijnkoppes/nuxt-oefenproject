@@ -3,7 +3,7 @@
     <NuxtRouteAnnouncer />
     <!-- <NuxtWelcome /> -->
     <SharedNavbar />
-    <NuxtPage></NuxtPage>
+    <NuxtLayout><NuxtPage></NuxtPage></NuxtLayout>
     <!-- <Info /> -->
   </div>
 </template>
