@@ -1,19 +1,31 @@
 <script setup>
-const { data: posts } = await useFetch("posts", {
-  baseURL: "https://jsonplaceholder.typicode.com",
-  method: "post",
-  body: {
-    title: "titel",
-    name: "geentitel",
+const apiKey = "I6EMNITXEYUWPEYL";
+const {
+  data: stocks,
+  status,
+  execute,
+} = await useFetch("/query", {
+  baseURL: "https://www.alphavantage.co/",
+  query: {
+    function: "TIME_SERIES_INTRADAY",
+    symbol: "IBM",
+    interval: "5min",
+    apikey: apiKey,
   },
+  timeout: 5000,
+  lazy: true,
+  immediate: false,
 });
 // console.log(product.value);
 </script>
 <template>
   <div>
-    <!-- <button @click="fetchproduct"><h1>Display new prroductt</h1></button> -->
+    <h1>Stocks</h1>
     <div>
-      {{ posts }}
+      <p v-for="stock in stocks" :key="stock.id">
+        {{ stock }}
+      </p>
+      <a @click="execute"><h1>fetch</h1></a>
     </div>
   </div>
 </template>
