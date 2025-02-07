@@ -15,6 +15,10 @@ const {
   timeout: 5000,
   lazy: true,
   immediate: false,
+  default: (stock) => {
+    stock = "no data available";
+    return stock;
+  },
 });
 // console.log(product.value);
 </script>
