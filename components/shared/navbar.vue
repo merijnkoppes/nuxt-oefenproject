@@ -153,6 +153,14 @@ onMounted(() => {
                     >page 7</NuxtLink
                   >
                 </li>
+                <li>
+                  <NuxtLink
+                    to="/page8"
+                    :prefetch="true"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >page 8</NuxtLink
+                  >
+                </li>
               </ul>
             </div>
           </li>
