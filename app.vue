@@ -6,3 +6,6 @@
     <!-- <Info /> -->
   </div>
 </template>
+<script setup>
+// import "flowbite";
+</script>
