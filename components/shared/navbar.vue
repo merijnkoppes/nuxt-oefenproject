@@ -1,6 +1,8 @@
 <script setup>
 import { Dropdown } from "flowbite";
 
+const pages = 9;
+const pagesarray = Array.from({ length: pages }, (_, i) => i + 1);
 onMounted(() => {
   const dropdownElement = document.getElementById("dropdownNavbar");
   const dropdownToggle = document.getElementById("dropdownNavbarLink");
@@ -97,7 +99,15 @@ onMounted(() => {
                 class="py-2 text-sm text-gray-700 dark:text-gray-400"
                 aria-labelledby="dropdownLargeButton"
               >
-                <li>
+                <li v-for="page in pagesarray" :key="page">
+                  <NuxtLink
+                    :to="`/page${page}`"
+                    :prefetch="true"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >Page {{ page }}</NuxtLink
+                  >
+                </li>
+                <!-- <li>
                   <NuxtLink
                     to="/page1"
                     :prefetch="true"
@@ -160,7 +170,7 @@ onMounted(() => {
                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >page 8</NuxtLink
                   >
-                </li>
+                </li> -->
               </ul>
             </div>
           </li>
