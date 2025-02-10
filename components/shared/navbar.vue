@@ -1,7 +1,7 @@
 <script setup>
 import { Dropdown } from "flowbite";
 
-const pages = 9;
+const pages = 10;
 const pagesarray = Array.from({ length: pages }, (_, i) => i + 1);
 onMounted(() => {
   const dropdownElement = document.getElementById("dropdownNavbar");
