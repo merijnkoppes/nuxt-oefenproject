@@ -9,9 +9,13 @@ const { data } = await useAsyncData("key", async () => {
   ]);
   return { todo1, todo2, jewelery };
 });
+
+const counter = useState("counterState", () => 1);
 </script>
 <template>
   <div>
+    <h1>{{ counter }}</h1>
+    <button @click="counter++">Increment</button><br />
     {{ toDo }}
     <br />
     <br />

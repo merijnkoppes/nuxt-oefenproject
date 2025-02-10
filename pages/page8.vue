@@ -1,7 +1,9 @@
 <script setup>
-const counter = useState(() => 1);
+const counter = useState("counterState", () => 1);
 </script>
 <template>
-  <h1>{{ counter }}</h1>
-  <button @click="counter++">Increment</button>
+  <div>
+    <h1>{{ counter }}</h1>
+    <button @click="counter++">Increment</button>
+  </div>
 </template>
