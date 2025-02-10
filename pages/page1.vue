@@ -1,7 +1,12 @@
 <script setup>
-// definePageMeta({
-//   middleware: ["middleware-example"],
-// });
+useHead({
+  title: "pagina1",
+});
+
+definePageMeta({
+  //   middleware: ["middleware-example"],
+  layout: "bluelayout",
+});
 </script>
 <template>
   <div>
