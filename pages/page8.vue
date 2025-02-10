@@ -1,5 +1,5 @@
 <script setup>
-const counter = useState("counterState", () => 1);
+const counter = useCounter();
 </script>
 <template>
   <div>
