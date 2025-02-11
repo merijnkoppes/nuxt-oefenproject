@@ -1,27 +1,28 @@
 <script setup>
 const result = ref(null);
+
 const getPosts = async () => {
-  const { data } = await useFetch("/api/posts");
-  result.value = data;
+  result.value = await $fetch("/api/posts");
 };
+
 const addPost = async () => {
-  const { data } = await useFetch("/api/posts", {
+  result.value = await $fetch("/api/posts", {
     method: "post",
-    body: { newPost: { id: 3, title: "title" } },
+    body: { newPost: { id: 5, title: "newpost" } },
   });
 };
+
 const editPost = async () => {
-  const { data } = await useFetch("/api/posts", {
+  result.value = await $fetch("/api/posts", {
     method: "put",
     body: {
-      title: "testtilel",
+      title: "testtitle",
     },
   });
-  result.value = data;
 };
+
 const deletePost = async () => {
-  const { data } = await useFetch("/api/posts", { method: "delete" });
-  result.value = data;
+  result.value = await $fetch("/api/posts", { method: "delete" });
 };
 </script>
 <template>

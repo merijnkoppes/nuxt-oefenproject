@@ -6,5 +6,8 @@ export default defineEventHandler( async(event) => {
         {id: 4, title: 'post4'},
     ]
     const body = await readBody(event)
+    console.log(body.newPost)
     posts.push(body.newPost)
+    console.log(posts)
+    return posts
 })
