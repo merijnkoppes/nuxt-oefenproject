@@ -17,6 +17,8 @@
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkg3nh2YF-8SUwmK3Kv13uxAfeFd6Z-W0k7w&s"
       width="500px"
     />
+
+    <h2>{{ data }}</h2>
   </div>
 </template>
 <script setup>
@@ -24,6 +26,8 @@ import { ref } from "vue";
 
 const show = ref(false);
 const name = ref("");
+
+const { data } = await useFetch("/api/hello");
 </script>
 <style scoped>
 input {
