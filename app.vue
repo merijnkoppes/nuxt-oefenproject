@@ -1,5 +1,6 @@
 <template>
   <div>
+    <CookieConsent />
     <NuxtRouteAnnouncer />
     <!-- <NuxtWelcome /> -->
     <NuxtLayout><NuxtPage></NuxtPage></NuxtLayout>
