@@ -3,7 +3,10 @@ const { data: product, error } = await useFetch(
   "https://fakestoreapi.com/products/1"
 );
 if (product) {
-  throw createError({ statusCode: 404, message: "page not found" });
+  throw createError({
+    statusCode: 404,
+    message: "page not found, dit is mijn eigen error",
+  });
 }
 </script>
 <template>

@@ -25,4 +25,11 @@ export default defineNuxtConfig({
       meta: [{ name: "description", content: "nuxt test" }],
     },
   },
+  runtimeConfig: {
+    api: process.env.apiKey,
+    secretKey: "123",
+    public: {
+      publicKey: "publickey",
+    },
+  },
 });
