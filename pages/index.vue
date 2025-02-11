@@ -13,6 +13,20 @@ const { data } = await useFetch("/api/hello");
 </script>
 <template>
   <div>
+    <NuxtLink to="/register">Register</NuxtLink>
+    <br />
+    <NuxtLink to="/login">Login</NuxtLink>
+    <br />
+    <NuxtLink to="/logout">Logout</NuxtLink>
+    <br />
+  </div>
+</template>
+
+<!-- <style scoped> -->
+<!-- input { color: black; } button * { color: black; }  -->
+<!-- </style> -->
+<!-- <template>
+  <div>
     <h1 class="animate__animated animate__bounce">Bounce</h1>
     <label>Wat is je naam?</label>
 
@@ -37,13 +51,4 @@ const { data } = await useFetch("/api/hello");
 
     <h2>{{ data }}</h2>
   </div>
-</template>
-
-<style scoped>
-input {
-  color: black;
-}
-button * {
-  color: black;
-}
-</style>
+</template> -->
