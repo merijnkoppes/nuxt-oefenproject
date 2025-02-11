@@ -1,3 +1,16 @@
+<script setup>
+import { ref } from "vue";
+
+const show = ref(false);
+const name = ref("");
+
+const config = useRuntimeConfig();
+console.log(config.public.publicKey);
+console.log(config.api);
+console.log(config.secretKey);
+
+const { data } = await useFetch("/api/hello");
+</script>
 <template>
   <div>
     <h1 class="animate__animated animate__bounce">Bounce</h1>
@@ -21,14 +34,7 @@
     <h2>{{ data }}</h2>
   </div>
 </template>
-<script setup>
-import { ref } from "vue";
 
-const show = ref(false);
-const name = ref("");
-
-const { data } = await useFetch("/api/hello");
-</script>
 <style scoped>
 input {
   color: black;
