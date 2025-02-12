@@ -4,7 +4,10 @@ import { Dropdown } from "flowbite";
 const pages = 10;
 const pagesarray = Array.from({ length: pages }, (_, i) => i + 1);
 
-onMounted(() => {
+const supabase = useSupabaseClient();
+const user = ref(null);
+
+onMounted(async () => {
   // Initialize the first dropdown
   const dropdownElement1 = document.getElementById("dropdownNavbar1");
   const dropdownToggle1 = document.getElementById("dropdownNavbarLink1");
@@ -20,7 +23,19 @@ onMounted(() => {
   if (dropdownElement2 && dropdownToggle2) {
     new Dropdown(dropdownElement2, dropdownToggle2);
   }
+  const { data } = await supabase.auth.getSession();
+  user.value = data.session?.user || null;
+
+  // Listen for auth state changes
+  supabase.auth.onAuthStateChange((event, session) => {
+    user.value = session?.user || null;
+  });
 });
+const logout = async () => {
+  await supabase.auth.signOut();
+  user.value = null; // Reset user state
+  console.log("user:", user);
+};
 </script>
 
 <template>
@@ -170,7 +185,7 @@ onMounted(() => {
                 class="py-2 text-sm text-gray-700 dark:text-gray-400"
                 aria-labelledby="dropdownLargeButton"
               >
-                <li>
+                <li v-if="!user">
                   <NuxtLink
                     to="/login"
                     :prefetch="true"
@@ -178,7 +193,7 @@ onMounted(() => {
                     >Login</NuxtLink
                   >
                 </li>
-                <li>
+                <li v-if="!user">
                   <NuxtLink
                     to="/register"
                     :prefetch="true"
@@ -186,9 +201,17 @@ onMounted(() => {
                     >Register</NuxtLink
                   >
                 </li>
-                <li>
+                <li v-if="user">
+                  <div
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                  >
+                    <h3>{{ user.user_metadata.full_name }}</h3>
+                  </div>
+                </li>
+                <li v-if="user">
                   <NuxtLink
-                    to="/logout"
+                    to="/"
+                    @click="logout()"
                     :prefetch="true"
                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >Logout</NuxtLink
