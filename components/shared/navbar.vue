@@ -33,8 +33,7 @@ onMounted(async () => {
 });
 const logout = async () => {
   await supabase.auth.signOut();
-  user.value = null; // Reset user state
-  console.log("user:", user);
+  user.value = null;
 };
 </script>
 
