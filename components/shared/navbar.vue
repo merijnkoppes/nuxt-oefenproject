@@ -1,14 +1,13 @@
 <script setup>
 import { Dropdown } from "flowbite";
 
-const pages = 10;
-const pagesarray = Array.from({ length: pages }, (_, i) => i + 1);
-
+const pagesCount = ref(0);
 const supabase = useSupabaseClient();
 const user = ref(null);
 
 onMounted(async () => {
-  // Initialize the first dropdown
+  pagesCount.value = Object.keys(import.meta.glob("~/pages/page*.vue"));
+
   const dropdownElement1 = document.getElementById("dropdownNavbar1");
   const dropdownToggle1 = document.getElementById("dropdownNavbarLink1");
 
@@ -123,12 +122,12 @@ const logout = async () => {
                 class="py-2 text-sm text-gray-700 dark:text-gray-400"
                 aria-labelledby="dropdownLargeButton"
               >
-                <li v-for="page in pagesarray" :key="page">
+                <li v-for="(page, index) in pagesCount" :key="page">
                   <NuxtLink
-                    :to="`/page${page}`"
+                    :to="`/page${index + 1}`"
                     :prefetch="true"
                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >Page {{ page }}</NuxtLink
+                    >Page {{ index + 1 }}</NuxtLink
                   >
                 </li>
               </ul>
