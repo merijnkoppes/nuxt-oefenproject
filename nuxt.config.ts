@@ -37,6 +37,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     api: process.env.apiKey,
+    MipBaseUrl: process.env.MIP_BASE_URL,
     secretKey: "123",
     public: {
       publicKey: "publickey",

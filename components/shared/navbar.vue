@@ -127,6 +127,7 @@ const logout = async () => {
                     :to="`/page${index + 1}`"
                     :prefetch="true"
                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    data-dropdown-toggle="dropdownNavbar1"
                     >Page {{ index + 1 }}</NuxtLink
                   >
                 </li>
