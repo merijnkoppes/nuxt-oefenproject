@@ -1,0 +1,1 @@
+export const addition = (x, y) => x + y

@@ -3,12 +3,22 @@ import { Dropdown } from "flowbite";
 
 const pages = 10;
 const pagesarray = Array.from({ length: pages }, (_, i) => i + 1);
-onMounted(() => {
-  const dropdownElement = document.getElementById("dropdownNavbar");
-  const dropdownToggle = document.getElementById("dropdownNavbarLink");
 
-  if (dropdownElement && dropdownToggle) {
-    new Dropdown(dropdownElement, dropdownToggle);
+onMounted(() => {
+  // Initialize the first dropdown
+  const dropdownElement1 = document.getElementById("dropdownNavbar1");
+  const dropdownToggle1 = document.getElementById("dropdownNavbarLink1");
+
+  if (dropdownElement1 && dropdownToggle1) {
+    new Dropdown(dropdownElement1, dropdownToggle1);
+  }
+
+  // Initialize the second dropdown
+  const dropdownElement2 = document.getElementById("dropdownNavbar2");
+  const dropdownToggle2 = document.getElementById("dropdownNavbarLink2");
+
+  if (dropdownElement2 && dropdownToggle2) {
+    new Dropdown(dropdownElement2, dropdownToggle2);
   }
 });
 </script>
@@ -66,11 +76,11 @@ onMounted(() => {
               >Home</NuxtLink
             >
           </li>
-          <!-- dropdown -->
+          <!-- First dropdown -->
           <li>
             <button
-              id="dropdownNavbarLink"
-              data-dropdown-toggle="dropdownNavbar"
+              id="dropdownNavbarLink1"
+              data-dropdown-toggle="dropdownNavbar1"
               class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
             >
               Pages
@@ -92,7 +102,7 @@ onMounted(() => {
             </button>
             <!-- Dropdown menu -->
             <div
-              id="dropdownNavbar"
+              id="dropdownNavbar1"
               class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600"
             >
               <ul
@@ -107,75 +117,9 @@ onMounted(() => {
                     >Page {{ page }}</NuxtLink
                   >
                 </li>
-                <!-- <li>
-                  <NuxtLink
-                    to="/page1"
-                    :prefetch="true"
-                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >Page 1</NuxtLink
-                  >
-                </li>
-                <li>
-                  <NuxtLink
-                    to="/page2"
-                    :prefetch="true"
-                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >page 2</NuxtLink
-                  >
-                </li>
-                <li>
-                  <NuxtLink
-                    to="/page3"
-                    :prefetch="true"
-                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >page 3</NuxtLink
-                  >
-                </li>
-                <li>
-                  <NuxtLink
-                    to="/page4"
-                    :prefetch="true"
-                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >page 4</NuxtLink
-                  >
-                </li>
-                <li>
-                  <NuxtLink
-                    to="/page5"
-                    :prefetch="true"
-                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >page 5</NuxtLink
-                  >
-                </li>
-                <li>
-                  <NuxtLink
-                    to="/page6"
-                    :prefetch="true"
-                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >page 6</NuxtLink
-                  >
-                </li>
-                <li>
-                  <NuxtLink
-                    to="/page7"
-                    :prefetch="true"
-                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >page 7</NuxtLink
-                  >
-                </li>
-                <li>
-                  <NuxtLink
-                    to="/page8"
-                    :prefetch="true"
-                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >page 8</NuxtLink
-                  >
-                </li> -->
               </ul>
             </div>
           </li>
-          <!-- dropdown -->
-          <li></li>
 
           <li>
             <NuxtLink
@@ -193,43 +137,74 @@ onMounted(() => {
               >Nested page 1</NuxtLink
             >
           </li>
+          <!-- Second dropdown -->
+          <li>
+            <button
+              id="dropdownNavbarLink2"
+              data-dropdown-toggle="dropdownNavbar2"
+              class="flex items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Auth
+              <svg
+                class="w-2.5 h-2.5 ms-2.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 4 4 4-4"
+                />
+              </svg>
+            </button>
+            <!-- Dropdown menu -->
+            <div
+              id="dropdownNavbar2"
+              class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600"
+            >
+              <ul
+                class="py-2 text-sm text-gray-700 dark:text-gray-400"
+                aria-labelledby="dropdownLargeButton"
+              >
+                <li>
+                  <NuxtLink
+                    to="/login"
+                    :prefetch="true"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >Login</NuxtLink
+                  >
+                </li>
+                <li>
+                  <NuxtLink
+                    to="/register"
+                    :prefetch="true"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >Register</NuxtLink
+                  >
+                </li>
+                <li>
+                  <NuxtLink
+                    to="/logout"
+                    :prefetch="true"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >Logout</NuxtLink
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 </template>
+
 <style scoped>
 .router-link-active {
   color: rgb(240, 127, 255);
 }
-/* ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-nav {
-  webkit-font-smoothing: antialiased;
-  width: 100%;
-  height: 3rem;
-  background-color: black;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-}
-
-NuxtLink {
-  color: aliceblue;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-a:hover {
-  color: lightblue;
-} */
 </style>

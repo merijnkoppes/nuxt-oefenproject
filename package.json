@@ -21,9 +21,11 @@
   },
   "devDependencies": {
     "@nuxt/test-utils": "^3.15.4",
+    "@nuxtjs/supabase": "^1.4.6",
     "@nuxtjs/tailwindcss": "^6.13.1",
     "@vue/test-utils": "^2.4.6",
     "autoprefixer": "^10.4.20",
+    "happy-dom": "^16.8.1",
     "postcss": "^8.5.1",
     "tailwindcss": "^3.4.17",
     "vitest": "^3.0.5"
