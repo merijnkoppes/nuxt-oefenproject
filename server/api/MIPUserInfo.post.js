@@ -3,47 +3,41 @@ import sessionStore from '../utils/sessionStore';
 export default defineEventHandler(async (event) => {
     const config = useRuntimeConfig();
     const { MipBaseUrl } = config;
-    const body = await readBody(event);
 
-    console.log("Received request body:", JSON.stringify(body, null, 2));
-
-    // Retrieve session token from cookies
     const sessionToken = getCookie(event, "sessionToken");
     if (!sessionToken) {
         throw createError({ statusCode: 401, statusMessage: "Unauthorized: No session token" });
     }
 
-    console.log("Retrieved sessionToken:", sessionToken);
-
-    // Get JWT from in-memory store
-    const jwt = sessionStore.get(sessionToken);
-    if (!jwt) {
-        throw createError({ statusCode: 401, statusMessage: "Session expired: No JWT found" });
+    let token = String(sessionStore.get(sessionToken)).trim();
+    if (!token) {
+        throw createError({ statusCode: 401, statusMessage: "Session expired: No backend token found" });
     }
 
-    console.log("Retrieved JWT:", jwt);
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    myHeaders.append("Cache-Control", "no-cache");
+    myHeaders.append("User-Agent", "PostmanRuntime/7.43.0");
+    myHeaders.append("Accept", "*/*");
+    myHeaders.append("Accept-Encoding", "gzip, deflate, br");
+    myHeaders.append("Connection", "keep-alive");
+    myHeaders.append("token", token);
 
-    const requestBody = JSON.stringify({
-        username: body.username,
-        password: body.password,
-        token: jwt  // Send raw, unencoded token
-    });
-    
+    const urlencoded = new URLSearchParams();
+    urlencoded.append("token", token);
+
     const response = await fetch(`${MipBaseUrl}/UserInfo`, {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: requestBody
+        headers: myHeaders,
+        body: urlencoded,
+        redirect: "follow"
     });
-    console.log('requestBody:' + requestBody)
-    if (!response.ok) {
-        throw createError({ statusCode: response.status, statusMessage: "Failed to fetch user info" });
+
+    const responseText = await response.text();
+
+    try {
+        return JSON.parse(responseText);
+    } catch {
+        return { message: responseText };
     }
-
-    const responseData = await response.json();
-    
-    console.log("Backend Response:", JSON.stringify(responseData, null, 2));
-
-    return responseData;
 });

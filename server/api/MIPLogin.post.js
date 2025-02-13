@@ -32,7 +32,7 @@ console.log("responseData:" + responseData)
     }
 
     const jwt = responseData.token;  // Extract token from response
-
+console.log("nieuwetoken:" + jwt)
     // Generate a Nitro session token
     const sessionToken = crypto.randomUUID();
 
