@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  css: ["~/assets/css/main.css", "animate.css"],
+  css: ["~/assets/css/main.css", "animate.css", "vuetify/styles"],
   modules: [
     "@nuxtjs/google-fonts",
     "@nuxtjs/tailwindcss",
@@ -42,5 +42,11 @@ export default defineNuxtConfig({
     public: {
       publicKey: "publickey",
     },
+  },
+  vite: {
+    assetsInclude: ["**/*.png"],
+  },
+  build: {
+    transpile: ["vuetify"],
   },
 });
