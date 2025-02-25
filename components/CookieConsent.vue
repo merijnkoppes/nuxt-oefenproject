@@ -18,10 +18,10 @@ const acceptCookies = () => {
 </script>
 
 <template>
-  <div v-if="showBanner" class="cookie-banner">
+  <!-- <div v-if="showBanner" class="cookie-banner">
     <p>This site uses cookies to enhance your experience. Do you accept?</p>
     <button @click="acceptCookies">Accept</button>
-  </div>
+  </div> -->
 </template>
 
 <style scoped>

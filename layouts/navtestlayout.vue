@@ -41,7 +41,7 @@ import NewNav2 from "~/components/(navbar)/newnav2.vue";
 import NewNav3 from "~/components/(navbar)/newnav3.vue";
 
 // Set up a reactive state for the selected navbar (default to newnav1)
-const selectedNavbar = ref("newnav3");
+const selectedNavbar = ref("newnav2");
 
 // Compute the current navbar component based on the selectedNavbar value
 const currentNavbar = computed(() => {
