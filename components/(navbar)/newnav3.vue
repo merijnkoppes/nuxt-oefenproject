@@ -295,6 +295,6 @@ import { Icon } from "@iconify/vue";
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0);
 }
 </style>
