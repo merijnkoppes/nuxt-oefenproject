@@ -1,29 +1,51 @@
 <script setup>
 import { Icon } from "@iconify/vue";
+const activePage = ref("dashboard");
+const setActivePage = (page) => {
+  activePage.value = page;
+};
 </script>
 <template>
   <nav>
     <div id="row1" class="row">
       <div id="section1">
         <ul>
-          <li :class="{ active: $route.path === '/' }">
+          <li
+            :class="{ active: activePage === '/' }"
+            @click="setActivePage('/')"
+          >
             <NuxtLink to="#">Dashboard</NuxtLink>
           </li>
-          <li :class="{ active: $route.path === '/projects' }">
+          <li
+            :class="{ active: activePage === '/projects' }"
+            @click="setActivePage('/projects')"
+          >
             <NuxtLink to="#">Projects</NuxtLink>
           </li>
-          <li :class="{ active: $route.path === '/chat' }">
+          <li
+            :class="{ active: activePage === '/chat' }"
+            @click="setActivePage('/chat')"
+          >
             <NuxtLink to="#">Chat</NuxtLink>
           </li>
-          <li :class="{ active: $route.path === '/page14' }">
+          <li
+            :class="{ active: activePage === '/page14' }"
+            @click="setActivePage('/page14')"
+          >
             <NuxtLink to="#">Schedules</NuxtLink>
           </li>
-          <li :class="{ active: $route.path === '/templates' }">
+          <li
+            :class="{ active: activePage === '/templates' }"
+            @click="setActivePage('/templates')"
+          >
             <NuxtLink to="#">
               <Icon icon="mdi:recycle-variant" width="20" />Templates
             </NuxtLink>
           </li>
-          <li :class="{ active: $route.path === '/tasks' }">
+          <li
+            :class="{ active: activePage === '/tasks' }"
+            @click="setActivePage('/tasks')"
+          >
             <NuxtLink to="#">
               Tasks<Icon icon="mdi:clipboard-check" width="24" /><Icon
                 icon="mdi:alarm-clock"
@@ -31,19 +53,34 @@ import { Icon } from "@iconify/vue";
               />
             </NuxtLink>
           </li>
-          <li :class="{ active: $route.path === '/hours' }">
+          <li
+            :class="{ active: activePage === '/hours' }"
+            @click="setActivePage('/hours')"
+          >
             <NuxtLink to="#">Hours</NuxtLink>
           </li>
-          <li :class="{ active: $route.path === '/forms' }">
+          <li
+            :class="{ active: activePage === '/forms' }"
+            @click="setActivePage('/forms')"
+          >
             <NuxtLink to="#">Forms</NuxtLink>
           </li>
-          <li :class="{ active: $route.path === '/documents' }">
+          <li
+            :class="{ active: activePage === '/documents' }"
+            @click="setActivePage('/documents')"
+          >
             <NuxtLink to="#">Documents</NuxtLink>
           </li>
-          <li :class="{ active: $route.path === '/reports' }">
+          <li
+            :class="{ active: activePage === '/reports' }"
+            @click="setActivePage('/reports')"
+          >
             <NuxtLink to="#">Reports</NuxtLink>
           </li>
-          <li :class="{ active: $route.path === '/rpa' }">
+          <li
+            :class="{ active: activePage === '/rpa' }"
+            @click="setActivePage('/rpa')"
+          >
             <NuxtLink to="#" class="geletekst">RPA</NuxtLink>
           </li>
         </ul>
