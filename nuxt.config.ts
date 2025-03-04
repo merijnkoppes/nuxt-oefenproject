@@ -35,6 +35,7 @@ export default defineNuxtConfig({
       meta: [{ name: "description", content: "nuxt test" }],
     },
   },
+
   runtimeConfig: {
     api: process.env.apiKey,
     MipBaseUrl: process.env.MIP_BASE_URL,
